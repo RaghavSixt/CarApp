@@ -15,19 +15,25 @@ class thirdViewController:UIViewController,UICollectionViewDelegate, UICollectio
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
+    var carName = ""
+    
+    func setCarName(name:String)
+    {
+        carName = name
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
-        
         
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
         
-        
-//        navigationItem.title = "More Car Images Page"
     }
+    
+   
     
     
     override func viewDidLayoutSubviews() {

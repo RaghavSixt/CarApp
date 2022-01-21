@@ -12,15 +12,33 @@ class secondViewController:UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
-//        navigationItem.title = "Car Detail Screen"
-        
         
         createStackView()
     }
     
+    
+    var carName:String=""
+    var carDescription:String=""
+    
+    
+    func setName(name:String)
+    {
+        carName = name
+    }
+    
+    func setDescription(desName:String)
+    {
+        carDescription = desName
+    }
+   
+    
+    
+    
     @objc  func buttonClicked(_ : UIButton)
     {
         let thirdController = thirdViewController()
+        
+        
         
         navigationController?.pushViewController(thirdController, animated: true)
         
@@ -32,15 +50,16 @@ class secondViewController:UIViewController
         
         let imageView = UIImageView()
         
+    
         imageView.backgroundColor = .white
-        imageView.image = UIImage(named: "Nissan_Sentrapic1.jpeg")
+        imageView.image = UIImage(named: "\(carName)pic1.jpeg")
         imageView.contentMode = .scaleAspectFill
         imageView.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: view.frame.size.height/3).isActive = true
         
         let label = UILabel()
         
-        label.text = "Nissan Sentra"
+        label.text = carName
         label.textColor = .white
         label.textAlignment = .center
         label.backgroundColor = .black
@@ -50,7 +69,7 @@ class secondViewController:UIViewController
         
         let label2 = UILabel()
         
-        label2.text = "Highs Handsome inside and outside, front seats are endlessly comfy, notable standard tech features. Lows Finding speed is a chore, sporty SR model has a choppy ride, optional sunroof reduces headroom. Verdict The Sentra is a comfortable and good-looking compact car, but it's not an above-average one."
+        label2.text = carDescription
         label2.contentMode = .scaleToFill
         label2.numberOfLines = 0
     
@@ -66,7 +85,6 @@ class secondViewController:UIViewController
         button.backgroundColor = .black
         button.setTitle("Click here for more Images", for: .normal)
         button.addTarget(self, action: #selector(buttonClicked(_ :)), for: .touchUpInside)
-         
         
         
         
@@ -80,11 +98,12 @@ class secondViewController:UIViewController
         
         view.addSubview(stackView)
         
-        
-        
-        
-        
     }
-    
-    
+
+}
+
+struct Car
+{
+    let name:String
+    let description:String
 }

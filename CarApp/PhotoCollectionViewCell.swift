@@ -11,6 +11,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PhotoCollectionViewCell"
     
+    
+    var carName = ""
+    
+    func setCarName(name:String)
+    {
+        carName = name
+    }
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

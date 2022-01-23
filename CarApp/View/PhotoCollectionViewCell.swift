@@ -14,7 +14,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     var carName = ""
     
-    func setCarName(name:String)
+    public func setCarName(name:String)
     {
         carName = name
     }

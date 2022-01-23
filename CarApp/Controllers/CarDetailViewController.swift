@@ -6,7 +6,7 @@
 
 import UIKit
 
-class secondViewController:UIViewController
+class CarDetailViewController:UIViewController
 {
     
     override func viewDidLoad() {
@@ -34,16 +34,20 @@ class secondViewController:UIViewController
     
     
     
+    
     @objc  func buttonClicked(_ : UIButton)
     {
-        let thirdController = thirdViewController()
-        
-        
+        let thirdController = MoreCarImagesController()
         
         navigationController?.pushViewController(thirdController, animated: true)
         
         print("Just Pressed The button so time to show more images")
     }
+    
+    
+    
+    
+    //StackViewContent
     
     func createStackView()
     {

@@ -32,7 +32,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     
     func gotoNextScreen(indexPath: IndexPath)
     {
-        let secondController = secondViewController()
+        let secondController = CarDetailViewController()
         secondController.carName = carLogic.carsDetails[indexPath.row].name
         secondController.carDescription = carLogic.carsDetails[indexPath.row].description
 
@@ -61,7 +61,12 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath )
         
         cell.textLabel?.text = carLogic.carsDetails[indexPath.row].name
+        
         cell.imageView?.image = UIImage(named: "\(carLogic.carsDetails[indexPath.row].name)main.jpeg")
+        
+        
+    
+        
         cell.backgroundColor = .systemOrange
         
         return cell

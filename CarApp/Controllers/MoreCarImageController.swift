@@ -7,13 +7,16 @@
 
 import UIKit
 
-class thirdViewController:UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+class MoreCarImagesController:UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
+    
+    
+
     
     var carName = ""
     
@@ -22,33 +25,43 @@ class thirdViewController:UIViewController,UICollectionViewDelegate, UICollectio
         carName = name
     }
     
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
         
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        registerCollectionView()
         view.addSubview(collectionView)
         
     }
     
-   
-    
+    //Collection View
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
-
+    
+    func registerCollectionView()
+    {
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath)
+        
+//        PhotoCollectionViewCell.setCarName(name: "Nissan_Sentrapic1.jpeg")
+    
         
         return cell
     }

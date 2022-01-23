@@ -101,9 +101,3 @@ class secondViewController:UIViewController
     }
 
 }
-
-struct Car
-{
-    let name:String
-    let description:String
-}

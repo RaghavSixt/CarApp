@@ -39,6 +39,8 @@ class CarDetailViewController:UIViewController
     {
         let thirdController = MoreCarImagesController()
         
+        thirdController.carName=carName
+        
         navigationController?.pushViewController(thirdController, animated: true)
         
         print("Just Pressed The button so time to show more images")

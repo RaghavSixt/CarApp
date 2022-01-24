@@ -11,12 +11,20 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PhotoCollectionViewCell"
     
-    
-    var carName = ""
-    
-    public func setCarName(name:String)
+    public func setCarName(name:String,indexPath:IndexPath)
     {
-        carName = name
+        let images = [
+            UIImage(named: "\(name)pic1.jpeg"),
+            UIImage(named: "\(name)pic2.jpeg"),
+            UIImage(named: "\(name)pic3.jpeg"),
+            UIImage(named: "\(name)pic4.jpeg"),
+            UIImage(named: "\(name)pic5.jpeg"),
+            UIImage(named: "\(name)pic6.jpeg"),
+            UIImage(named: "\(name)main.jpeg"),
+        ]
+        
+        imageView.image = images[indexPath.row]
+    
     }
     
     private let imageView: UIImageView = {
@@ -30,18 +38,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     {
         super.init(frame: frame)
         contentView.addSubview(imageView)
-        
-        let images = [
-        UIImage(named: "Nissan_Sentrapic1.jpeg"),
-        UIImage(named: "Nissan_Sentrapic2.jpeg"),
-        UIImage(named: "Nissan_Sentrapic3.jpeg"),
-        UIImage(named: "Nissan_Sentrapic4.jpeg"),
-        UIImage(named: "Nissan_Sentrapic5.jpeg"),
-        UIImage(named: "Nissan_Sentrapic6.jpeg"),
-        ].compactMap({$0})
-        
-        imageView.image = images.randomElement()
-        
     }
     
     required init?(coder: NSCoder) {

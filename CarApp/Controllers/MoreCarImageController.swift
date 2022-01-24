@@ -25,12 +25,10 @@ class MoreCarImagesController:UIViewController,UICollectionViewDelegate, UIColle
         carName = name
     }
     
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
+
         
         registerCollectionView()
         view.addSubview(collectionView)
@@ -52,18 +50,16 @@ class MoreCarImagesController:UIViewController,UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell
         
-//        PhotoCollectionViewCell.setCarName(name: "Nissan_Sentrapic1.jpeg")
-    
-        
-        return cell
+        cell?.setCarName(name: carName,indexPath:indexPath)
+        return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
